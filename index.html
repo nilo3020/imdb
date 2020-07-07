@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+  <title>Template Document </title>
+  <!-- CSS -->
+  <link href="main.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- Greensock -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div class="content">
+      <div id="outer-box">
+        <div class="imdbLogo"><img src="img/IMDB_Logo_2016.svg"><h2>Flickpickr</h2></div>
+        <div class="filter">
+          <div class="filterSubject streams">
+            <h3>Streaming service</h3>
+            <div class="streamSelection drop">
+                <div class="stream" data-stream="Netflix"><img src="logo-img/Netflix_logo.svg"></div>
+                <div class="stream" data-stream="Stan"><img src="logo-img/Stan_logo.svg"></div>
+                <div class="stream" data-stream="Binge"><img src="logo-img/Binge_logo-free.png"></div>
+                <div class="stream" data-stream="Prime"><img src="logo-img/Prime_logo.svg"></div>
+            </div>
+          </div>
+          <div class="filterSubject genres">
+            <h3>Genre</h3>
+            <div class="genreSelection drop">
+              <div class="genre" data-genre="drama">Drama</div>
+              <div class="genre" data-genre="crime">Crime</div>
+              <div class="genre" data-genre="action">Action</div>
+              <div class="genre" data-genre="western">Western</div>
+              <div class="genre" data-genre="sci-fi">Sci-Fi</div>
+              <div class="genre" data-genre="adventure">Adventure</div>
+              <div class="genre" data-genre="thriller">Thriller</div>
+              <div class="genre" data-genre="romance">Romance</div>
+            </div>
+          </div>
+          <div class="filterSubject ratings">
+            <h3>Rating</h3>
+            <div class="ratingSelection drop">
+              <div class="rating" data-rating=1>1</div>
+              <div class="rating" data-rating=2>2</div>
+              <div class="rating" data-rating=3>3</div>
+              <div class="rating" data-rating=4>4</div>
+              <div class="rating" data-rating=5>5</div>
+              <div class="rating" data-rating=6>6</div>
+              <div class="rating" data-rating=7>7</div>
+              <div class="rating" data-rating=8>8</div>
+              <div class="rating" data-rating=9>9</div>
+            </div>
+          </div>
+          <hr>
+          <div class="filterSubject actors">
+            <h3>Starring</h3>
+            <input type="text">
+          </div>
+          <div class="filterSubject eras">
+            <h3>Era</h3>
+            <div class="erasSelection drop">
+              <div class="era" data-era="1920">1920</div>
+              <div class="era" data-era="1930">1930</div>
+              <div class="era" data-era="1940">1940</div>
+              <div class="era" data-era="1950">1950</div>
+              <div class="era" data-era="1960">1960</div>
+              <div class="era" data-era="1970">1970</div>
+              <div class="era" data-era="1980">1980</div>
+              <div class="era" data-era="1990">1990</div>
+              <div class="era" data-era="2000">2000</div>
+              <div class="era" data-era="2010">2010</div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="action">
+          <button onclick="showRandomMovieDiv()">Pick-A-Flick</button>
+          <a onclick="showFullListDiv()">Show full list</a>
+        </div>
+      </div>
+  </div>
+
+<div id="randomDiv">
+  <div class="shadowdiv">
+    <div class="randomMovie">
+      <div class="moviePoster">
+
+      </div>
+      <div class="movieInfo">
+        <div class="left-col">
+          <div class="movieInfoTitle">
+
+          </div>
+          <div class="movieInfoPlot">
+
+          </div>
+          <div class="movieInfoStreams">
+            Stream: 
+          </div>
+        </div>
+        <div class="right-col">
+          <div class="movieInfoRating">
+
+          </div>
+          <div class="movieInfoGenre">
+
+          </div>
+          <div class="movieInfoStarring">
+
+          </div>
+          <div class="movieInfoEra">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="fullListDiv">
+  <div class="shadowdiv">
+    <div class="fullList">
+
+    </div>
+  </div>
+</div>
+<script src="ass1.js"></script>
+
+</body>
