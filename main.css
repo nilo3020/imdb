@@ -106,14 +106,14 @@ input {
 }
 
 .arrowUp {
-  background-image: url("keyboard_arrow_up-24px.svg") !important;
+  background-image: url("img/keyboard_arrow_up-24px.svg") !important;
   width: 24px;
   height: 24px;
   transition: all 0.5s ease;
 }
 
 .arrowDown {
-  background-image: url("keyboard_arrow_up-24px.svg") !important;
+  background-image: url("img/keyboard_arrow_up-24px.svg") !important;
   width: 24px;
   height: 24px;
   transition: all 0.5s ease;
