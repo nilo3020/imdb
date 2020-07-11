@@ -314,7 +314,7 @@ function filterMovieList(stream, genre, imdbScore, starring, era) {
     <div class="rowTitle"><h1>${filterMovies[i].title}</h1></div>
     </div>
     <div class="right-col">
-    <div class="rating"><img src="img/IMDB_Logo_2016.svg"> Score: ${filterMovies[i].imdbScore}</div>
+    <div class="rating"><img src="logo-img/IMDB_Logo_2016.svg"> Score: ${filterMovies[i].imdbScore}</div>
     <div class="listPoster"><img src="posters/${moviePosterTitle}.jpg"></div>
     </div>`)
     $(".listRow .left-col").eq(i).append(streamingbox);
