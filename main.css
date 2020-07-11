@@ -5,7 +5,7 @@ body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
-.shadowdiv {
+.shadowDiv {
   background-color: rgba(0,0,0,0.5);
   width: 100vw;
   height: 100vh;
@@ -29,7 +29,7 @@ hr {
 
 h3 {
   font-size: 1.1em;
-  margin: 0 0 5px 0;
+  margin: 0 0 0 0;
   padding: 0;
 }
 
@@ -75,13 +75,56 @@ input {
 .filter {
   display: flex;
   flex-flow: column;
+  width: 520px;
 }
 
 .filterSubject {
   margin-bottom: 5px;
   background-color: rgba(255,255,255,0.5);
-  padding: 10px;
+  padding: 0;
   border-radius: 10px;
+}
+
+#streamDrop {
+  display: none;
+}
+
+#genreDrop {
+  display: none;
+}
+
+#ratingDrop {
+  display: none;
+}
+
+#actorsDrop {
+  display: none;
+}
+
+#eraDrop {
+  display: none;
+}
+
+.arrowUp {
+  background-image: url("keyboard_arrow_up-24px.svg") !important;
+  width: 24px;
+  height: 24px;
+  transition: all 0.5s ease;
+}
+
+.arrowDown {
+  background-image: url("keyboard_arrow_up-24px.svg") !important;
+  width: 24px;
+  height: 24px;
+  transition: all 0.5s ease;
+  transform: rotate(180deg);
+}
+
+.togglediv {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  cursor: pointer;
 }
 
 .streams {
@@ -92,24 +135,29 @@ input {
 .streamSelection {
   display: flex;
   flex-flow: row;
+  padding: 0px 10px 10px;
 }
 
-.streams img {
+.streamSelection .stream img {
   max-height: 25px;
   min-width: 100px;
   padding: 10px;
 }
 
-.streams img:hover {
+.stream:hover {
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.stream:hover .selectedStream {
+  padding: 0;
 }
 
 .genreSelection {
   display: grid;
   grid: 20% / auto auto auto auto;
+  padding: 0px 10px 10px;
 }
 
 .genreSelection .genre {
@@ -129,6 +177,7 @@ input {
 .ratingSelection {
   display: flex;
   justify-content: space-evenly;
+  padding: 0px 10px 10px;
 }
 
 .ratingSelection .rating {
@@ -146,13 +195,29 @@ input {
   cursor: pointer;
 }
 
-.actors input {
-  width: 90%;
+.actorsSelection {
+  padding: 0px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#starring {
+  width: 70%;
+}
+
+.actors input[type="submit"] {
+  background-color: #121212;
+  color: #fdc500;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-right: 25px;
+  width: 20%;
 }
 
 .erasSelection {
   display: grid;
   grid: 20% / auto auto auto auto auto;
+  padding: 0px 10px 10px;
 }
 
 .erasSelection .era {
@@ -178,17 +243,19 @@ input {
   margin: 0 auto;
 }
 
-.action a {
+.action button {
   margin: 10px;
   text-decoration: underline;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
-.action a:hover {
+.action button:hover {
   text-decoration: none;
 }
 
-.action a.button {
+#showRandomMovieBtn {
   padding: 10px;
   color: #ffffff;
   border-radius: 5px;
@@ -208,7 +275,7 @@ input {
   border-radius: 10px 10px 0 0;
   padding: 50px 50px 0 50px;
   margin: 0 auto;
-  max-width: 40%;
+  max-width: 30%;
   display: flex;
   justify-content: center;
 }
@@ -232,6 +299,9 @@ input {
 
 .movieInfo .left-col {
   width: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .movieInfo h1 {
@@ -244,8 +314,44 @@ input {
   text-align: right;
 }
 
+.movieInfo .left-col .rightIn-col {
+  display: flex;
+  padding: 0;
+}
+
+.movieInfo .left-col .leftIn-col {
+  width: auto;
+  display: flex;
+  align-items: end;
+  padding: 0;
+  line-height: 13px;
+}
+
+.randomInfo {
+  display: flex;
+  flex-flow: row;
+  margin: 10px 0;
+}
+
+.randomInfo p {
+  margin: 0;
+}
+
+.leftIn-col {
+  width: 65%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.rightIn-col {
+  width: 35%;
+  text-align: left;
+  padding-left: 10px;
+}
+
 .movieInfoStreams {
-  margin-top: 20px
+  margin-top: 20px;
+  display: flex;
 }
 
 .movieInfo img {
@@ -274,10 +380,14 @@ input {
 
 .listRow h1 {
   font-size: 1.5em;
+  margin: 0;
 }
 
 .listRow .left-col {
   width: 70%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .listRow .right-col {
@@ -293,7 +403,8 @@ input {
 }
 
 .listRow .streaming img {
-  height: 20px;
+  height: 15px;
+  margin-right: 10px;
 }
 
 .rating {
@@ -317,14 +428,6 @@ input {
   max-height: 80px;
 }
 
-.dark {
-  background-color: #121212;
-}
-
-.light {
-  background-color: #222222;
-}
-
 #randomDiv {
   display: none;
 }
@@ -332,6 +435,29 @@ input {
 #fullListDiv {
   display: none;
 }
-@media only screen and (max-width:480px) {
 
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 580px) {
+  .content {
+    background-color: #fdc500;
+    height: 100vh;
+  }
+
+  #outer-box {
+    max-width: 100vw;
+    position: static;
+    border-radius: 0px;
+    max-height: 100vh;
+  }
+
+  .filter {
+    width: 100%;
+  }
 }
