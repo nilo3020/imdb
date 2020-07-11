@@ -94,18 +94,31 @@ const movieList = [
 
 // GLOBAL VARIABLES
 var selectedStream;
-var selectedGenre;
-var selectedRating;
-var selectedStarring;
-var selectedEra;
+var selectedGenre = "all";
+var selectedRating = "all";
+var selectedStarring = "all";
+var selectedEra = "all";
 let moviePosterTitle;
 var filterMovies = [];
 var randomMovie = [];
 var streamLogo;
 
+// Expand/collapse filterdivs
+$(".togglediv").click(function() {
+  var togglediv = $(this);
+  var filterDrop = togglediv.next();
+  filterDrop.slideToggle(500, function() {
+  })
+})
+//change arrow up/down
+$(".togglediv").on("click", function() {
+  $(this).children("span").toggleClass("arrowDown arrowUp")
+})
+
 // Detect stream on click
 $(".stream").on("click", function() {
-  selectedStream = $(this).data("stream");
+  selectedStream = ($(this).data("stream"));
+  $(".stream").removeClass('selectedFilter');
   $(this).addClass('selectedFilter');
   console.log(selectedStream)
 })
@@ -113,6 +126,7 @@ $(".stream").on("click", function() {
 // Detect genre on click
 $(".genre").on("click", function() {
   selectedGenre = $(this).data("genre");
+  $(".genre").removeClass('selectedFilter');
   $(this).addClass('selectedFilter');
   console.log(selectedGenre)
 })
@@ -120,6 +134,7 @@ $(".genre").on("click", function() {
 // Detect rating on click
 $(".rating").on("click", function() {
   selectedRating = $(this).data("rating");
+  $(".rating").removeClass('selectedFilter');
   $(this).addClass('selectedFilter');
   console.log(selectedRating)
 })
@@ -127,6 +142,7 @@ $(".rating").on("click", function() {
 // Detect era on click
 $(".era").on("click", function() {
   selectedEra = $(this).data("era");
+  $(".era").removeClass('selectedFilter');
   $(this).addClass('selectedFilter');
   console.log(selectedEra)
 })
@@ -142,29 +158,57 @@ function showCorrectPoster() {
 }
 
 // show correct stream logo
-function changeTextToLogo() {
+function displayStreamLogo() {
   for(i in randomMovie.stream) {
     streamLogo = randomMovie.stream[i]
-    if(streamLogo === randomMovie.stream[i]) {
-      $(".movieInfoStreams").append(`<img src="logo-img/${streamLogo}_logo.svg">`)
-    }
     if(randomMovie.stream[i] === "Binge") {
-      $(".movieInfoStreams").append(`<img src="logo-img/Binge_logo-free.png">`)
+      $(".movieInfoStreams .rightIn-col").append(`<img src="logo-img/Binge_logo-free.png">`)
     }
+    if (streamLogo != "Binge")
+      $(".movieInfoStreams .rightIn-col").append(`<img src="logo-img/${streamLogo}_logo.svg">`)
   }
+}
+
+function writeOutActors() {
+  for(i in randomMovie.actors) {
+    $(".movieInfoStarring .rightIn-col").append(`<p>${randomMovie.actors[i]}</p>`)
+  }
+}
+
+function writeOutGenres() {
+  for(i in randomMovie.genre)
+  $(".movieInfoGenre .rightIn-col").append(`<p>${randomMovie.genre[i]}</p>`)
 }
 
 //filter all the variables for random movie
 function filterMovieListRandom(stream, genre, imdbScore, starring, era) {
   filterMovies = [];
   for(var x of movieList) {
-    const filterStream = x.stream.includes(stream)
-    const filterGenre = x.genre.includes(genre)
-    const filterRating = x.imdbScore >= imdbScore
-    const filterStarring = x.actors.includes(starring)
-    const filterEra = x.era === era
+    var filterGenre;
+    var filterRating;
+    var filterStarring;
+    var filterEra;
+    var filterStream = x.stream.includes(stream)
 
-    if (filterStream) { // && filterGenre && filterRating && filterEra
+    if (genre == "all") { filterGenre = true; }
+    if (imdbScore == "all") { filterRating = true; }
+    if (starring == "all") { filterStarring = true; }
+    if (era == "all") { filterEra = true; }
+
+    if (genre != "all") {
+      filterGenre = x.genre.includes(genre);
+    }
+    if (imdbScore != "all") {
+      filterRating = x.imdbScore >= imdbScore;
+    }
+    if (starring != "all") {
+      filterStarring = x.actors.includes(starring);
+    }
+    if (era != "all") {
+      filterEra = x.era === era;
+    }
+
+    if (filterStream && filterGenre && filterRating && filterStarring && filterEra) {
       filterMovies.push(x);
       console.log(x)
     }
@@ -175,14 +219,13 @@ function filterMovieListRandom(stream, genre, imdbScore, starring, era) {
   console.log(randomMovie.title)
 
   showCorrectPoster();
-  changeTextToLogo();
-
-  $(".movieInfoTitle").append(`<h1>` + randomMovie.title + `</h1>`)
+  displayStreamLogo();
+  writeOutActors();
+  writeOutGenres();
+  $(".movieInfoTitle").append(`<h1>${randomMovie.title}</h1>`)
   $(".movieInfoPlot").append("Plot: " + randomMovie.plot)
-  $(".movieInfoRating").append("Rating: " + randomMovie.imdbScore)
-  $(".movieInfoGenre").append("Genre: " + randomMovie.genre)
-  $(".movieInfoStarring").append("Starring: " + randomMovie.actors)
-  $(".movieInfoEra").append("Era: " + randomMovie.era)
+  $(".movieInfoRating .rightIn-col").append(randomMovie.imdbScore)
+  $(".movieInfoEra .rightIn-col").append(randomMovie.era)
 }
 
 // Generate the random movie
@@ -191,15 +234,23 @@ function generateRandomMovie () {
 }
 
 // Show the div with the random movie
-function showRandomMovieDiv() {
-  const randomMovieDiv = document.getElementById("randomDiv");
-  if (randomMovieDiv.style.display === "block") {
-    randomMovieDiv.style.display = "none";
-  } else {
-    randomMovieDiv.style.display = "block";
-  }
+$("#showRandomMovieBtn").on("click", function() {
+  $("#randomDiv").show();
   generateRandomMovie();
-}
+});
+// Hide on click
+$(".shadowDiv").on("click", function() {
+  $("#randomDiv").hide();
+  $(".moviePoster").html("");
+  $(".movieInfoTitle").html("");
+  $(".movieInfoPlot").html("");
+  $(".movieInfoStreams .rightIn-col").html("");
+  $(".movieInfoStarring .rightIn-col").html("");
+  $(".movieInfoGenre .rightIn-col").html("");
+  $(".movieInfoRating .rightIn-col").html("");
+  $(".movieInfoEra .rightIn-col").html("");
+})
+
 
 
 
@@ -207,185 +258,82 @@ function showRandomMovieDiv() {
 
 // ########################### LIST VIEW ###########################
 
-function textToLogoList() {
-  for(x=0; x<filterMovies[i].stream.length; i++) {
-    streamLogo = filterMovies[i].stream[x]
-    $(".streaming").append(`<img src="logo-img/${streamLogo}_logo.svg">`)
-    console.log(streamLogo)
-  }
-}
 // Filter for list of movies
 function filterMovieList(stream, genre, imdbScore, starring, era) {
   filterMovies = [];
   for(var x of movieList) {
-    const filterStream = x.stream.includes(stream)
-    const filterGenre = x.genre.includes(genre)
-    const filterRating = x.imdbScore >= imdbScore
-    const filterStarring = x.actors.includes(starring)
-    const filterEra = x.era === era
+    var filterGenre;
+    var filterRating;
+    var filterStarring;
+    var filterEra;
+    var filterStream = x.stream.includes(stream)
 
-    if (filterStream) { // && filterGenre && filterRating && filterEra
+    // reset all filters to show all movies
+    if (genre == "all") { filterGenre = true; }
+    if (imdbScore == "all") { filterRating = true; }
+    if (starring == "all") { filterStarring = true; }
+    if (era == "all") { filterEra = true; }
+
+    // define selected filters
+    if (genre != "all") {
+      filterGenre = x.genre.includes(genre);
+    }
+    if (imdbScore != "all") {
+      filterRating = x.imdbScore >= imdbScore;
+    }
+    if (starring != "all") {
+      filterStarring = x.actors.includes(starring);
+    }
+    if (era != "all") {
+      filterEra = x.era === era;
+    }
+    // create var of movies matching filter
+    if (filterStream && filterGenre && filterRating && filterStarring && filterEra) { //
       filterMovies.push(x);
       console.log(x)
     }
   }
   console.log(filterMovies)
-
+// Trying to get the right stream logos in list
   for(i in filterMovies) {
     moviePosterTitle = filterMovies[i].title
-    for(x in filterMovies[i].stream) {
+    console.log("LENGTH OF LOGO ARRAY: " + filterMovies[i].stream.length)
+    var streamingbox = $("<div class='streaming'> </div>");
+    for(x=0; x<filterMovies[i].stream.length; x++) {
       streamLogo = filterMovies[i].stream[x]
-      $(".streaming").append(`<img src="logo-img/${streamLogo}_logo.svg">`)
-      console.log(streamLogo)
+      if(filterMovies[i].stream[x] == "Binge") {
+        streamingbox.append(`<img src="logo-img/Binge_logo-free.png">`)
+      }
+      else {
+        streamingbox.append(`<img src="logo-img/${streamLogo}_logo.svg">`)
+      }
     }
+
     $(".fullList").append(`<div class="listRow">
     <div class="left-col">
     <div class="rowTitle"><h1>${filterMovies[i].title}</h1></div>
-    <div class="streaming"></div>
     </div>
     <div class="right-col">
     <div class="rating"><img src="img/IMDB_Logo_2016.svg"> Score: ${filterMovies[i].imdbScore}</div>
     <div class="listPoster"><img src="posters/${moviePosterTitle}.jpg"></div>
     </div>`)
+    $(".listRow .left-col").eq(i).append(streamingbox);
   }
 }
 
+// generate list of filtered movies
 function generateFullList() {
   filterMovieList(selectedStream, selectedGenre, selectedRating, selectedStarring, selectedEra);
 }
 
-function showFullListDiv() {
-  const fullListDiv = document.getElementById("fullListDiv");
-  if (fullListDiv.style.display === "block") {
-    fullListDiv.style.display = "none";
-  } else {
-    fullListDiv.style.display = "block";
-  }
+// show the div with the list
+$("#showFullListBtn").on("click", function() {
+  $("#fullListDiv").show();
   generateFullList();
-}
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(filterMovies); // Gives array with 5 movies
-//
-// function fullListOfMovies() {
-//   for(i=0; i<filterMovies.length; i++) {
-//     console.log(filterMovies[i].title);
-//   }
-// }
-//
-// fullListOfMovies(); // Gives five movies
-//
-// let filterMoviesTitle = []
-// for(i=0; i<filterMovies.length; i++) {
-//   const filterMoviesTitle = filterMovies[i].title.slice(0)
-//   console.log(filterMoviesTitle)
-// }
-
-
-
-// function showFullList() {
-//   $(".content").prepend(`<div id="shadowdiv">`)
-//   $("#shadowdiv").append(`<div class="fullList">`)
-//   $(".fullList").append(`<div id="listRow" class="dark">`)
-//     document.getElementById("listRow").innerHTML = filterMovies[0].title;
-//   $(".fullList").append(`div id="listRow" class="light">`)
-//     document.getElementById("ListRow").innerHTML = filterMovies[1].title;
-// }
-
-
-//
-//
-// // $(".movieInfoTitle").append(`<h1>` + randomMovie.title + `</h1>`)
-// // $(".movieInfoStreams").append("Stream: " + randomMovie.stream)
-// // $(".movieInfoRating").append(randomMovie.imdbScore)
-// // $(".genre").append("Genre: " + randomMovie.genre)
-// // $(".starring").append("Starring: " + randomMovie.actors)
-// // $(".era").append(randomMovie.era)
-
-
-
-// if (randomMovie.title === "Forrest Gump") {
-//   $(".moviePoster").append(`<img src="posters/forrest-gump.jpg">`)
-// }
-// if (randomMovie.title === "12 Angry Men") {
-//   $(".moviePoster").append(`<img src="posters/12-angry-men.jpg">`)
-// }
-// if (randomMovie.title === "The Dark Knight") {
-//   $(".moviePoster").append(`<img src="posters/darkknight.jpg">`)
-// }
-// if (randomMovie.title === "Fight Club") {
-//   $(".moviePoster").append(`<img src="posters/fightclub.jpg">`)
-// }
-// if (randomMovie.title === "Inception") {
-//   $(".moviePoster").append(`<img src="posters/inception.jpg">`)
-// }
-// if (randomMovie.title === "Pulp Fiction") {
-//   $(".moviePoster").append(`<img src="posters/pulp-fiction.jpg">`)
-// }
-// if (randomMovie.title === "The Shawshank Redemption") {
-//   $(".moviePoster").append(`<img src="posters/shawshank.jpg">`)
-// }
-// if (randomMovie.title === "The Godfather") {
-//   $(".moviePoster").append(`<img src="posters/the-godfather.jpg">`)
-// }
-// if (randomMovie.title === "The Godfather: Part II") {
-//   $(".moviePoster").append(`<img src="posters/the-godfather-pt2.jpg">`)
-// }
-// if (randomMovie.title === "The Good, The Bad and The Ugly") {
-//   $(".moviePoster").append(`<img src="posters/thegood.jpg">`)
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const goodMovies = movieList.filter((movie) => {
-//  	return movie.imdbScore >= 9 // True or false statement that checks if the movie should remain in the list
-// }) // Returns both movies
-//
-//
-// const onNetflix = movieList.filter((movie) => {
-//  	// this is optional, but quite good if working with user input:
-//  	const lowercaseStreams = movie.stream.map((s) => {
-//  		// Convert all stream names to lowercase to avoid case sensitivity
-//  		return s.toLocaleLowerCase()
-//  	})
-//
-//  	return lowercaseStreams.includes('netflix') // Returns true if movie is on nflix
-//  })
-//
-//  const averageRating = movieList.reduce((sum, movie) => (sum += movie.imdbScore), 0) / movieList.length
-//
-//  console.log({ goodMovies, onNetflix, averageRating })
+// hide div on click #shadowDiv
+$(".shadowDiv").on("click", function() {
+  $("#fullListDiv").hide();
+  $(".fullList").html("");
+})
