@@ -2,74 +2,281 @@
 <head>
   <title>IMDB random movie generator</title>
   <!-- CSS -->
-  <link href="main.css" rel="stylesheet">
+  <link href="main4.css" rel="stylesheet">
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- typekit font -->
+  <link rel="stylesheet" href="https://use.typekit.net/hoo3udq.css">
   <!-- Greensock -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js" integrity="sha512-pCPP9sfLW9T7EZiw725jUl+ux032sjGhFE+ZAx00C1iO55ZmZJWpfNGbDf2ZF5b0UqxRqSW548PbZEWmH+S7pA==" crossorigin="anonymous"></script>
   <meta charset="utf-8">
 </head>
 
 <body>
   <div class="content">
+    <div class="modeSwitch"><button class="modeSwitchBtn" onclick="modeSwitch()"></button></div>
       <div id="outer-box">
-        <div class="imdbLogo"><img src="logo-img/IMDB_Logo_2016.svg"><h2>Flickpickr</h2></div>
+        <div class="imdbLogo">
+          <h2>Flickpickr</h2>
+          <div class="tagline">What are <span class="you">YOU</span> watching tonight?</div>
+        </div>
+        <div id="inner-box">
         <div class="filter">
           <div class="filterSubject streams">
-            <div class="togglediv"><h3>Streaming service</h3><span class="arrowUp"></span></div>
+            <div class="togglediv"><h3>Streaming service</h3></div>
             <div id="streamDrop">
               <div class="streamSelection">
-                <div class="stream" data-stream="Netflix"><img src="logo-img/Netflix_logo.svg"></div>
-                <div class="stream" data-stream="Stan"><img src="logo-img/Stan_logo.svg"></div>
-                <div class="stream" data-stream="Binge"><img src="logo-img/Binge_logo-free.png"></div>
-                <div class="stream" data-stream="Prime"><img src="logo-img/Prime_logo.svg"></div>
+                <div class="stream" data-stream="Netflix"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                	 viewBox="0 0 1024 276.7" style="enable-background:new 0 0 1024 276.7;" xml:space="preserve">
+
+                <path class="netflix unselected" d="M140.8,258.9c-15.4,2.7-31.1,3.5-47.3,5.7L44.1,119.7v151.1c-15.4,1.6-29.5,3.8-44.1,5.9V0h41.1l56.2,157V0
+                	h43.5L140.8,258.9L140.8,258.9z M225.9,101.3c16.8,0,42.4-0.8,57.8-0.8v43.2c-19.2,0-41.6,0-57.8,0.8v64.3
+                	c25.4-1.6,50.8-3.8,76.5-4.6v41.6l-119.7,9.5V0h119.7v43.2h-76.5C225.9,43.2,225.9,101.3,225.9,101.3z M463.2,43.2h-44.9v198.9
+                	c-14.6,0-29.2,0-43.2,0.5V43.2h-44.9V0h133C463.2,0,463.2,43.2,463.2,43.2z M533.5,98.4h59.2v43.2h-59.2v98.1h-42.4V0h120.8v43.2
+                	h-78.4C533.5,43.2,533.5,98.4,533.5,98.4z M682.1,201.9c24.6,0.5,49.5,2.4,73.5,3.8v42.7c-38.6-2.4-77.3-4.9-116.8-5.7V0h43.2V201.9
+                	L682.1,201.9z M792.1,251.3c13.8,0.8,28.4,1.6,42.4,3.2V0h-42.4V251.3z M1024,0l-54.9,131.6l54.9,145.1c-16.2-2.2-32.4-5.1-48.6-7.8
+                	l-31.1-80l-31.6,73.5c-15.7-2.7-30.8-3.5-46.5-5.7L921.8,130L871.6,0h46.5l28.4,72.7L976.7,0L1024,0L1024,0z"/>
+                </svg></div>
+                <div class="stream" data-stream="Stan"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                	 viewBox="0 0 901.6 272.1" style="enable-background:new 0 0 901.6 272.1;" xml:space="preserve">
+                <g id="Layer_1_1_">
+
+                		<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="408.6389" y1="-511.3171" x2="408.6389" y2="-313.1934" gradientTransform="matrix(1 0 0 -1 0 -244)">
+                		<stop  offset="0" style="stop-color:#0072FF"/>
+                		<stop  offset="1" style="stop-color:#0099FF"/>
+                	</linearGradient>
+                	<path class="stan0 unselected" d="M744.2,60.3c-37.3,0-54.3,19-54.3,19v-15h-86.5v132.5c0,0-9.8,4.3-16.5,2.5s-6.7-11.3-6.7-11.3V64.3H494v17.8
+                		c0,0-14.8-15.8-32.3-19.2c-26.4-5-60.5-1.7-88.5,32.8s-19.8,86.5-19.8,86.5s-23.3,14.2-41.7,14.2c-18.3,0-17.3-16.2-17.3-16.2V130
+                		h57V64.3h-58V15h-85.7v140.2c0,0-4.6-28.4-70.5-48.8c-32.4-10-54.7-12.8-50.8-27c3.2-11.7,22.5-10.7,22.5-10.7
+                		c39.3,0,78.8,26.4,78.8,26.4V15.7c0,0-5.5-2.5-14.8-5.7C145.3,0.9,82.2-12.3,28.7,24.2C3.1,46.1-2.4,76.8,0.8,101.4
+                		C2.7,114,7.1,124.9,13,132c19.2,22.7,62.5,32.3,82.7,36.7c20.2,4.3,30.8,9.3,30.8,19.8S113.4,206,83,201.2
+                		C52.7,196.3,23.7,176,23.7,176l-21,72.7c0,0,49.8,29.5,122.7,21.3c72.8-8.2,83.8-63,83.8-63c0.3-5.3-3.5,58.3,65.3,64.5
+                		c61.2,5.5,104.3-28.7,104.3-28.7s18.7,28.5,63.3,28.5c44.7,0,58.7-27.8,58.7-27.8s6,27.8,52.3,27.8c42.5,0,50.3-7,50.3-7v3h86.3
+                		V146c0,0,13.4-10.6,29.8-4.8c13.1,4.7,12.8,21.9,12.8,21.9v104.2h85V136.7c0,0-1.7-24.5-11.2-41.8S781.5,60.3,744.2,60.3z
+                		 M494.3,189.3c0,0-8.5,8-26.5,8s-28.5-13.3-28.5-30.7c0-17.3,10.5-31.8,28.5-31.8s26.5,8,26.5,8V189.3z"/>
+
+                		<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="864.6" y1="-512.7" x2="864.6" y2="-243.2989" gradientTransform="matrix(1 0 0 -1 0 -244)">
+                		<stop  offset="0" style="stop-color:#0072FF"/>
+                		<stop  offset="1" style="stop-color:#0099FF"/>
+                	</linearGradient>
+                	<path class="stan1 unselected" d="M863.3,197.7c-31.7,0-35.8,25.4-35.8,37.8c0,12,5.8,33.2,36.6,33.2s37.6-20.4,37.6-34.9
+                		C901.6,219.2,894.9,197.7,863.3,197.7z"/>
+                </g>
+                <g id="Layer_3">
+                	<g>
+                		<path class="stan2 unselected" d="M388,252.6c-1.4-1.7-2.1-2.8-2.1-2.8s-0.2,0.1-0.5,0.4C386.2,251,387,251.8,388,252.6z"/>
+                		<path class="stan2 unselected" d="M696.9,86.3c0,0,17-19,54.3-19c21.9,0,36.3,5.9,46.3,14.3c-10.1-11.9-25.7-21.3-53.3-21.3
+                			c-23.7,0-37.4,6.3-47.3,13.2c-4.2,2.9-7,5.8-7,5.8L696.9,86.3z"/>
+                		<path class="stan2 unselected" d="M300.4,71.3h51v-7h-58L300.4,71.3z"/>
+                		<path class="stan2 unselected" d="M494.3,189.3c0,0-8.5,8-26.5,8c-6.4,0-14.3-3-21.3-9.2c4.8,7.1,17.9,16.2,28.3,16.2c18,0,26.5-8,26.5-8v-46.5
+                			c0,0-2.9-4-7-6.9V189.3z"/>
+                		<path class="stan2 unselected" d="M594.9,205.3c6.7,1.8,15.5-1.5,15.5-1.5V71.3h79.5v-7h-86.5v132.5c0,0-11.6,3-18.2,1.8
+                			C587.8,201.3,591.3,204.4,594.9,205.3z"/>
+                		<path class="stan2 unselected" d="M358.4,123.7c3.2-9.6,7.9-19.3,14.8-27.8c28-34.5,62.1-37.8,88.5-32.8c17.6,3.3,32.3,19.2,32.3,19.2v-18h86.2
+                			v7H501v17.8c0,0-14.8-15.8-32.3-19.2c-26.4-5-60.5-1.7-88.5,32.8s-19.8,86.5-19.8,86.5s-23.3,14.2-41.7,14.2
+                			c-9.6,0-13.9-4.5-15.8-8.7c2.3,1,5.2,1.7,8.8,1.7c18.3,0,41.7-14.2,41.7-14.2s-3.3-23.7,1.5-45.2
+                			C356.6,128.5,358.4,123.7,358.4,123.7z"/>
+                		<path class="stan2 unselected" d="M732.5,267.3h7v-97.2c0,0,0-18.2-14.9-26.1c8.1,6.3,7.9,19.1,7.9,19.1V267.3z"/>
+                		<path class="stan2 unselected" d="M19.7,138.6c-5.8-7.1-10.1-17.9-11.9-30.2C4.6,83.8,10.1,53,35.6,31.1C89.2-5.3,152.3,7.9,179.9,17
+                			c3,1,5.6,2,7.8,2.8v-4.1c0,0-5.5-2.5-14.8-5.7C145.3,0.9,82.2-12.3,28.7,24.2C3.1,46.1-2.4,76.8,0.8,101.4
+                			C2.7,114,7.1,124.9,13,132C15,134.3,17.3,136.5,19.7,138.6z"/>
+                		<path class="stan2 unselected" d="M30.7,183c0,0,29,20.3,59.3,25.2c30.3,4.8,43.5-2.2,43.5-12.7c0-5.3-4.9-11-9.1-14.4c0.8,1.6,2.1,5.4,2.1,7.4
+                			c0,10.5-13.2,17.5-43.5,12.7C52.7,196.3,23.7,176,23.7,176l-21,72.7c0,0,2.7,1.6,7.9,4L30.7,183z"/>
+                		<path class="stan2 unselected" d="M214.7,169.2V22h78.7v-7h-85.7v139.4C212.4,161.8,214.7,169.2,214.7,169.2z"/>
+                	</g>
+                	<path class="stan2 unselected" d="M834.4,242.5c0-12.4,4.2-37.8,35.8-37.8c11.1,0,19.1,2.7,24.9,6.7c-5.5-7.8-15.2-13.7-31.9-13.7
+                		c-31.7,0-35.8,25.4-35.8,37.8c0,7.9,2.5,19.7,12.9,26.9C835.7,255.8,834.4,248.1,834.4,242.5z"/>
+                </g>
+                </svg>
+</div>
+                <div class="stream" data-stream="Binge"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                	 viewBox="0 0 916 201" style="enable-background:new 0 0 916 201;" xml:space="preserve">
+                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="126.8" x2="917.4022" y2="126.8">
+                	<stop  offset="0" style="stop-color:#216BF7"/>
+                	<stop  offset="0.2647" style="stop-color:#391DCE"/>
+                	<stop  offset="0.3128" style="stop-color:#5117BC"/>
+                	<stop  offset="0.4001" style="stop-color:#760EA1"/>
+                	<stop  offset="0.4705" style="stop-color:#8D098F"/>
+                	<stop  offset="0.5146" style="stop-color:#960789"/>
+                	<stop  offset="0.6626" style="stop-color:#BD0958"/>
+                	<stop  offset="0.7489" style="stop-color:#D00A41"/>
+                	<stop  offset="1" style="stop-color:#F08A2E"/>
+                </linearGradient>
+                <path class="binge0 unselected" d="M220.9,93l73.9-38.8l-19,145.2h-67.7L220.9,93z"/>
+                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="0" y1="99.55" x2="917.4022" y2="99.55">
+                	<stop  offset="0" style="stop-color:#216BF7"/>
+                	<stop  offset="0.2647" style="stop-color:#391DCE"/>
+                	<stop  offset="0.3128" style="stop-color:#5117BC"/>
+                	<stop  offset="0.4001" style="stop-color:#760EA1"/>
+                	<stop  offset="0.4705" style="stop-color:#8D098F"/>
+                	<stop  offset="0.5146" style="stop-color:#960789"/>
+                	<stop  offset="0.6626" style="stop-color:#BD0958"/>
+                	<stop  offset="0.7489" style="stop-color:#D00A41"/>
+                	<stop  offset="1" style="stop-color:#F08A2E"/>
+                </linearGradient>
+                <path class="binge1 unselected" d="M358.7,199.4h-61.6L322.7-0.3H384l56.4,105.5L454.3-0.3h61l-25.3,199.7h-61L372.3,94L358.7,199.4z"/>
+                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="1.818989e-12" y1="26.45" x2="917.4022" y2="26.45">
+                	<stop  offset="0" style="stop-color:#216BF7"/>
+                	<stop  offset="0.2647" style="stop-color:#391DCE"/>
+                	<stop  offset="0.3128" style="stop-color:#5117BC"/>
+                	<stop  offset="0.4001" style="stop-color:#760EA1"/>
+                	<stop  offset="0.4705" style="stop-color:#8D098F"/>
+                	<stop  offset="0.5146" style="stop-color:#960789"/>
+                	<stop  offset="0.6626" style="stop-color:#BD0958"/>
+                	<stop  offset="0.7489" style="stop-color:#D00A41"/>
+                	<stop  offset="1" style="stop-color:#F08A2E"/>
+                </linearGradient>
+                <path class="binge2 unselected" d="M233.6-0.3h68.1l-6.8,53.5h-68.2L233.6-0.3z"/>
+                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="0" y1="101.35" x2="917.4022" y2="101.35" gradientTransform="matrix(1 0 0 -1 0 202)">
+                	<stop  offset="0" style="stop-color:#216BF7"/>
+                	<stop  offset="0.2647" style="stop-color:#391DCE"/>
+                	<stop  offset="0.3128" style="stop-color:#5117BC"/>
+                	<stop  offset="0.4001" style="stop-color:#760EA1"/>
+                	<stop  offset="0.4705" style="stop-color:#8D098F"/>
+                	<stop  offset="0.5146" style="stop-color:#960789"/>
+                	<stop  offset="0.6626" style="stop-color:#BD0958"/>
+                	<stop  offset="0.7489" style="stop-color:#D00A41"/>
+                	<stop  offset="1" style="stop-color:#F08A2E"/>
+                </linearGradient>
+                <path class="binge3 unselected" d="M192.4,161.5c15.2-40.3-6.6-58-23.3-61.8c8.9-3.9,31.1-7.8,30-50.8C198,5.7,163.9,0,147.6,0
+                	C131.4,0,26.3,0,26.3,0L0,201.3c0,0,97-0.8,110-0.8C122.9,200.5,177.1,201.8,192.4,161.5z M81.7,48.4c0,0,35.3,0,37.5,0
+                	c2,0,15.3,0.2,15.1,14.2c-0.1,14-16,14.2-16,14.2H78.4L81.7,48.4z M69.3,152.2l3.6-33h42.3c0,0,20.9,0.5,19.3,16.5
+                	c-1.4,16-23.3,16.5-28,16.5C101.8,152.2,69.3,152.2,69.3,152.2z"/>
+                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="9.094947e-13" y1="99.55" x2="917.4022" y2="99.55">
+                	<stop  offset="0" style="stop-color:#216BF7"/>
+                	<stop  offset="0.2647" style="stop-color:#391DCE"/>
+                	<stop  offset="0.3128" style="stop-color:#5117BC"/>
+                	<stop  offset="0.4001" style="stop-color:#760EA1"/>
+                	<stop  offset="0.4705" style="stop-color:#8D098F"/>
+                	<stop  offset="0.5146" style="stop-color:#960789"/>
+                	<stop  offset="0.6626" style="stop-color:#BD0958"/>
+                	<stop  offset="0.7489" style="stop-color:#D00A41"/>
+                	<stop  offset="1" style="stop-color:#F08A2E"/>
+                </linearGradient>
+                <path class="binge4 unselected" d="M747.9-0.3H916l-6.5,53.5h-107l-1.7,17.3h88.3l-7.2,55H794l-3.1,18.9h107.3l-6.9,55H722.9L747.9-0.3z"/>
+                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="-9.094947e-13" y1="102.4" x2="917.4022" y2="102.4" gradientTransform="matrix(1 0 0 -1 0 202)">
+                	<stop  offset="0" style="stop-color:#216BF7"/>
+                	<stop  offset="0.2647" style="stop-color:#391DCE"/>
+                	<stop  offset="0.3128" style="stop-color:#5117BC"/>
+                	<stop  offset="0.4001" style="stop-color:#760EA1"/>
+                	<stop  offset="0.4705" style="stop-color:#8D098F"/>
+                	<stop  offset="0.5146" style="stop-color:#960789"/>
+                	<stop  offset="0.6626" style="stop-color:#BD0958"/>
+                	<stop  offset="0.7489" style="stop-color:#D00A41"/>
+                	<stop  offset="1" style="stop-color:#F08A2E"/>
+                </linearGradient>
+                <path class="binge5 unselected" d="M635.9,54.7c13.5,0,85.7,0,85.7,0l6.6-55c0,0-96.7,0-121.1,0c-24.3,0-45.3,13.7-66.7,34.9
+                	C519.2,55.8,517,95,517,102.9c0,7.9,0,35.2,24.2,65c24.2,29.9,65.8,31.6,76.1,31.6c9.3,0,85.7,0,85.7,0l14.8-114.8h-87.2
+                	c0,0,16.4,30.5,21.5,40.7c-9.3,19-20.1,18.6-32.6,18.9c-12.6,0.2-23.4-9.4-28.5-13.8c-5-4.4-19.5-24.5-7.1-50.6
+                	C595.9,53.8,622.4,54.7,635.9,54.7z"/>
+                </svg>
+              </div>
+                <div class="stream" data-stream="Prime"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                	 viewBox="0 0 800.3 246.3" style="enable-background:new 0 0 800.3 246.3;" xml:space="preserve">
+                <path class="prime0 unselected unselected" d="M396.5,246.3v-0.4c0.4-0.5,1.1-0.8,1.7-0.7c2.9-0.1,5.7-0.1,8.6,0c0.6,0,1.3,0.2,1.7,0.7v0.4H396.5z"/>
+                <path class="prime1 unselected" d="M408.5,245.9c-4-0.1-8-0.1-12,0c-5.5-0.3-11-0.5-16.5-0.9c-14.6-1.1-29.1-3.3-43.3-6.6
+                	c-49.1-11.4-92.2-34.3-129.8-67.6c-3.5-3.1-6.8-6.3-10.2-9.5c-0.8-0.7-1.5-1.7-1.9-2.7c-0.6-1.4-0.3-2.9,0.7-4s2.6-1.5,4-0.9
+                	c0.9,0.4,1.8,0.8,2.6,1.3c35.9,22.2,75.1,38.4,116.2,48c13.8,3.2,27.7,5.7,41.7,7.5c20.1,2.5,40.4,3.4,60.6,2.7
+                	c10.9-0.3,21.7-1.3,32.5-2.7c25.2-3.2,50.1-8.9,74.2-16.9c12.7-4.2,25.1-9,37.2-14.6c1.8-1,4-1.3,6-0.8c3.3,0.8,5.3,4.2,4.5,7.5
+                	c-0.1,0.4-0.3,0.9-0.5,1.3c-0.8,1.5-1.9,2.8-3.3,3.8c-11.5,9-23.9,16.9-37,23.5c-24.7,12.5-51.1,21.4-78.3,26.5
+                	C440.2,243.6,424.4,245.3,408.5,245.9z"/>
+                <path class="prime1 unselected" d="M260.4,43.2c2.5-1.5,5.1-3.1,7.8-4.5c7-3.6,14.8-5.4,22.7-5c5.7,0.3,10.9,1.9,14.9,6.1
+                	c3.8,3.9,5.2,8.7,5.6,13.9c0.1,1.1,0.1,2.2,0.1,3.4v51.8c0,4.5-0.6,5.1-5.1,5.1h-12.2c-0.8,0-1.6,0-2.4-0.1
+                	c-1.2-0.1-2.2-1.1-2.4-2.3c-0.2-1.1-0.2-2.2-0.2-3.3V62c0.1-1.9-0.1-3.7-0.6-5.5c-0.8-3.1-3.6-5.3-6.8-5.5
+                	c-5.9-0.4-11.8,0.8-17.2,3.3c-0.8,0.2-1.3,1-1.2,1.8v52.6c0,1,0,1.9-0.2,2.9c0,1.4-1.1,2.4-2.5,2.4l0,0c-1.5,0.1-3,0.1-4.6,0.1
+                	h-10.6c-3.7,0-4.5-0.9-4.5-4.6V62.2c0-1.7-0.1-3.5-0.5-5.2c-0.7-3.4-3.6-5.8-7-6c-6-0.4-12.1,0.8-17.5,3.4c-0.8,0.2-1.3,1.1-1.1,1.9
+                	v53.3c0,3.7-0.8,4.5-4.5,4.5H197c-3.5,0-4.4-1-4.4-4.4V40.3c0-0.8,0.1-1.6,0.3-2.4c0.4-1.2,1.6-1.9,2.8-1.9h12.5
+                	c1.8,0,2.9,1.1,3.5,2.8c0.5,1.4,0.8,2.7,1.3,4.2c1,0,1.6-0.7,2.3-1.1c5.5-3.4,11.3-6.3,17.8-7.5c5-1,10-1,15,0
+                	c4.7,1,8.9,3.8,11.6,7.8c0.2,0.3,0.4,0.5,0.6,0.7C260.2,43,260.3,43,260.4,43.2z"/>
+                <path class="prime2 unselected" d="M467.7,93c0.6-2,1.2-3.9,1.8-5.9c4.6-15.5,9.2-30.9,13.8-46.4l0.6-1.8c0.5-1.8,2.2-2.9,4-2.9h15.2
+                	c3.8,0,4.6,1.1,3.3,4.7l-6,15.9c-6.7,17.4-13.4,34.9-20.1,52.3c-0.2,0.6-0.5,1.2-0.7,1.8c-0.7,2.1-2.8,3.5-5,3.3
+                	c-4.4-0.1-8.8-0.1-13.2,0c-3.1,0.1-4.9-1.3-6-4.1c-2.5-6.6-5.1-13.3-7.6-19.9c-6-15.7-12.1-31.4-18.1-47.2c-0.6-1.2-1-2.6-1.3-3.9
+                	c-0.3-2,0.4-3,2.4-3c5.7-0.1,11.4,0,17,0c2.4,0,3.5,1.6,4.1,3.7c1.1,3.8,2.2,7.7,3.4,11.5c4.1,13.9,8.1,27.9,12.2,41.8
+                	C467.4,93,467.5,93,467.7,93z"/>
+                <path class="prime1 unselected" d="M112.6,47c0.7-0.2,1.3-0.6,1.7-1.2c1.8-1.8,3.7-3.5,5.7-5.1c5.2-4,11.7-6,18.2-5.5c2.6,0.1,3.5,0.9,3.7,3.4
+                	c0.2,3.4,0.1,6.9,0.1,10.3c0.1,1.4,0,2.7-0.2,4.1c-0.4,1.8-1.1,2.5-2.9,2.7c-1.4,0.1-2.7,0-4.1-0.1c-6.7-0.6-13.2,0.7-19.5,2.8
+                	c-1.4,0.5-1.4,1.5-1.4,2.6v48c0,0.9,0,1.7-0.1,2.6c-0.1,1.3-1.1,2.3-2.4,2.3c-0.7,0.1-1.5,0.1-2.2,0.1h-13c-0.7,0-1.5,0-2.2-0.1
+                	c-1.3-0.1-2.3-1.2-2.4-2.5c-0.1-0.8-0.1-1.6-0.1-2.4V41c0-4.6,0.5-5.1,5.1-5.1h9.6c2.6,0,3.8,0.9,4.5,3.4S112,44.3,112.6,47z"/>
+                <path class="prime1 unselected" d="M580.4,148.4c6.6,0.2,13.1,0.6,19.5,2.3c1.8,0.5,3.5,1.1,5.2,1.9c2.3,0.9,3.8,3.1,4.1,5.5
+                	c0.4,2.8,0.5,5.7,0.3,8.6c-1.3,17.1-6.6,33.6-15.4,48.3c-3.2,5.3-7.1,10.1-11.6,14.3c-0.9,0.9-2,1.6-3.2,2c-1.9,0.5-3.1-0.5-3.2-2.4
+                	c0.1-1,0.3-2,0.7-3c3.5-9.4,6.9-18.7,9.6-28.4c1.6-5.3,2.7-10.7,3.4-16.2c0.2-2,0.3-4,0.1-6c-0.1-3.4-2.3-6.3-5.6-7.3
+                	c-3.1-1-6.3-1.6-9.6-1.8c-9.2-0.4-18.4,0-27.5,1.2l-12.1,1.5c-1.3,0.1-2.5,0-3.2-1.2s-0.4-2.4,0.3-3.6c0.8-1.1,1.8-2.1,3-2.8
+                	c7.4-5.3,15.7-8.5,24.5-10.6C566.5,149.3,573.4,148.6,580.4,148.4z"/>
+                <path class="prime2 unselected" d="M538.5,75v36c-0.2,2-1.1,2.9-3.1,3c-5.4,0.1-10.7,0.1-16.1,0c-2,0-2.9-1-3.1-2.9c-0.1-0.6-0.1-1.3-0.1-1.9V40
+                	c0.1-3.1,0.9-4,4-4h14.4c3.1,0,4,0.9,4,4L538.5,75L538.5,75z"/>
+                <path class="prime1 unselected" d="M151.6,74.8V39.3c0.1-2.4,1-3.3,3.4-3.4c5.2-0.1,10.4-0.1,15.6,0c2.3,0,3,0.7,3.2,3c0.1,0.9,0.1,1.7,0.1,2.6
+                	v66.6c0,1.1-0.1,2.2-0.2,3.3c-0.1,1.3-1.1,2.2-2.4,2.3c-0.6,0.1-1.1,0.1-1.7,0.1h-13.9c-0.5,0-0.9,0-1.4-0.1
+                	c-1.4-0.1-2.6-1.2-2.7-2.6c-0.1-0.8-0.1-1.6-0.1-2.4C151.6,97.6,151.6,86.2,151.6,74.8z"/>
+                <path class="prime1 unselected" d="M163.2,0.1c1.6-0.1,3.2,0.2,4.7,0.7c5.4,1.8,8.2,6.5,7.7,12.6c-0.4,5.2-4.3,9.4-9.5,10.2
+                	c-2.2,0.4-4.5,0.4-6.7,0c-5.7-1.1-9.9-5.3-9.5-12.5C150.5,4,155.2,0.1,163.2,0.1z"/>
+                <path class="prime2 unselected" d="M527.4,0.1c2-0.2,4,0.2,5.9,1c3.9,1.5,6.6,5.1,6.8,9.3c0.8,9.1-5.3,13.7-13.4,13.5c-1.1,0-2.2-0.2-3.3-0.4
+                	c-6.2-1.5-9.4-6.3-8.8-13.2c0.5-5.5,4.8-9.6,10.7-10.1C526,0.1,526.7,0,527.4,0.1z"/>
+                <path class="prime1 unselected" d="M76.7,66.6c-0.4-5.2-1.8-10.3-3.9-15c-4.1-8.6-10.4-14.9-20-17.1c-11-2.4-20.9,0-29.9,6.7
+                	c-0.6,0.6-1.3,1.1-2.1,1.5c-0.2-0.1-0.4-0.2-0.4-0.3c-0.3-1-0.5-2-0.8-3c-0.8-2.5-1.8-3.4-4.5-3.4c-3,0-6.1,0.1-9.1,0
+                	c-2.3-0.1-4.4,0.2-6,2c0,35,0,70.1,0.1,105c1.3,2.1,3.3,2.5,5.6,2.4c3.6-0.1,7.2,0,10.8,0c6.3,0,6.3,0,6.3-6.2v-28.5
+                	c0-0.7-0.3-1.5,0.4-2.1c5,3.9,11.1,6.3,17.4,6.9c8.8,0.9,16.8-1.3,23.5-7.3c4.9-4.5,8.5-10.3,10.4-16.7C77.2,83.3,77.4,75,76.7,66.6
+                	z M52.8,87.3c-0.7,3.1-2.3,5.9-4.6,8c-2.6,2.2-5.8,3.5-9.2,3.5c-5.1,0.3-10.1-0.8-14.6-3.2c-1.1-0.5-1.8-1.6-1.7-2.8V74.7
+                	c0-6,0.1-12,0-18c-0.1-1.4,0.7-2.6,2-3.1c5.5-2.6,11.2-3.8,17.2-2.6c4.2,0.6,7.8,3.3,9.5,7.2c1.5,3.2,2.4,6.7,2.6,10.2
+                	C54.6,74.8,54.6,81.2,52.8,87.3z"/>
+                <path class="prime2 unselected" d="M800.1,82.2C800.1,82.2,800.1,82.1,800.1,82.2C800.1,82.1,800.1,82.1,800.1,82.2z"/>
+                <path class="prime2 unselected" d="M800.2,68.8v0.4c-0.4-0.4-0.6-1-0.4-1.5v-0.8c0,0,0-0.1,0.1-0.1h-0.1v-1h0.2c0-0.1-0.1-0.1-0.1-0.2
+                	c-0.2-1.9-0.6-3.8-1.1-5.6c-3.7-13.2-12-21.9-25.5-25.3c-6.3-1.5-12.7-1.7-19.1-0.7c-13.5,2-23.2,9.2-27.9,22
+                	c-4.6,12.2-4.5,25.6,0.1,37.8c4,11.1,12,18.1,23.5,21c6.1,1.5,12.5,1.9,18.8,1c21-2.5,29.7-18.4,31.1-32.2h-0.1v-1.4
+                	c-0.1-0.6-0.2-1.1,0.4-1.5v0.2c0-0.1,0.1-0.3,0.2-0.4V69C800.3,68.9,800.2,68.9,800.2,68.8z M776.2,87.8c-0.6,2.1-1.5,4-2.8,5.8
+                	c-2.2,3.1-5.7,5.1-9.5,5.4c-1.9,0.2-3.8,0.2-5.7-0.2c-4.2-0.8-7.7-3.6-9.4-7.5c-1.5-3.1-2.4-6.5-2.7-9.9c-0.5-5.9-0.6-11.8,0.8-17.6
+                	c0.5-2.3,1.5-4.6,2.7-6.6c2.2-3.6,6-5.9,10.2-6.2c1.9-0.2,3.8-0.2,5.7,0.2c4,0.8,7.3,3.4,9.1,7.1c1.7,3.5,2.7,7.4,2.9,11.3
+                	c0.1,1.8,0.2,3.6,0.1,5.4C777.9,79.4,777.4,83.7,776.2,87.8z"/>
+                <path class="prime2 unselected" d="M624.9,0.8H611c-3.8,0-4.5,0.7-4.5,4.5v32.4c0,0.7,0.3,1.4-0.2,2.1c-0.9-0.1-1.4-0.7-2.1-1.1
+                	c-10.4-6.1-21.3-7.2-32.3-2.1c-7.7,3.6-12.5,10.1-15.6,17.8c-3,7.4-3.7,15.2-3.5,23.1c0,7.4,1.7,14.7,5,21.3
+                	c3.8,7.3,9.3,12.9,17.3,15.3c10.9,3.4,21.1,1.7,30.4-5.2c0.7-0.4,1.1-1.1,2-1.3c0.5,1.1,0.9,2.3,1.1,3.5c0.4,1.6,1.8,2.7,3.5,2.7
+                	h2.4c3.6,0,7.1,0.1,10.6,0c2.8,0,3.6-0.9,3.7-3.8V4.6C628.7,1.5,627.9,0.8,624.9,0.8z M606.6,74.4v18.2c0.2,1.2-0.5,2.3-1.6,2.8
+                	c-4.8,2.7-10.3,3.8-15.7,3c-4.6-0.5-8.6-3.3-10.7-7.4c-1.6-3.2-2.5-6.6-2.8-10.1c-0.8-6.3-0.3-12.7,1.2-18.8c0.5-1.7,1.1-3.3,2-4.9
+                	c2.1-3.9,6.1-6.4,10.5-6.7c5.3-0.5,10.6,0.5,15.4,2.7c1.2,0.4,1.9,1.6,1.8,2.9C606.5,62.3,606.6,68.3,606.6,74.4L606.6,74.4z"/>
+                <path class="prime1 unselected" d="M348,81.3c7.5,1.4,15.2,1.5,22.7,0.3c4.4-0.6,8.6-1.9,12.5-4c4.5-2.6,7.8-6.2,9.2-11.2c3.5-12.6-1.9-25.3-15-30
+                	c-6.4-2.1-13.2-2.8-19.9-1.9c-15.8,1.8-26.1,10.5-30.8,25.6c-3.3,10.3-2.9,20.8-0.2,31.2c3.5,13.3,12.3,21.2,25.6,24
+                	c7.6,1.7,15.3,1.4,22.9,0.2c4-0.7,8-1.7,11.8-3.2c2.3-0.9,3.5-2.3,3.4-4.9c-0.1-2.4,0-4.9,0-7.4c0-3-1.2-3.9-4.1-3.2
+                	s-5.7,1.3-8.6,1.9c-6.2,1.3-12.6,1.3-18.8,0.2c-8.5-1.7-14-9-13.5-18C346.1,81,347.1,81.1,348,81.3z M345.5,66
+                	c0.3-2.4,1-4.7,1.9-6.9c3-7.3,9.3-9.8,15.7-9.4c1.8,0.1,3.6,0.5,5.3,1.2c2.6,1.1,4.3,3.5,4.6,6.3c0.3,1.7,0.2,3.5-0.3,5.2
+                	c-1.2,3.6-4.1,5.1-7.6,5.8c-2.1,0.5-4.3,0.7-6.5,0.5c-3.9,0-7.9-0.3-11.8-0.9C345.3,67.6,345.3,67.6,345.5,66z"/>
+                <path class="prime2 unselected" d="M685.3,82.3c5.8-0.4,11.6-1.5,16.8-4.3c5.3-2.6,9-7.5,10.1-13.3c0.7-3.6,0.7-7.4-0.1-11
+                	c-2.1-9-7.8-14.6-16.4-17.5c-4.8-1.5-9.9-2.1-14.9-1.9C664,34.7,651.2,43.2,646,60c-3.5,11.1-3,22.4,0.4,33.5
+                	c3.5,11.4,11.5,18.3,22.9,21.4c4.9,1.2,10,1.7,15,1.5c7.3-0.1,14.6-1.5,21.5-4.1c2.9-1.1,3.6-2.1,3.6-5.2v-7.2
+                	c-0.1-2.9-1.3-3.9-4.2-3.2c-2.2,0.6-4.3,1.1-6.5,1.6c-6.7,1.6-13.7,1.9-20.5,0.7c-6.8-1.3-11.4-5.2-13.2-12c-0.5-2-0.9-4-1.1-6.1
+                	c0.5,0,1,0,1.4,0.2C671.9,82.3,678.6,82.8,685.3,82.3z M664.4,66.3c0.7-3.9,1.6-7.7,4-10.9c3.7-4.9,8.8-6.3,14.6-5.7
+                	c0.5,0,0.9,0.2,1.4,0.2c7,1.1,8.7,6.7,7.4,12.1c-1,4-4.3,5.5-8,6.2c-2,0.4-4.1,0.6-6.2,0.5c-4.1-0.1-8.1-0.4-12.1-1
+                	C664.6,67.6,664.2,67.2,664.4,66.3L664.4,66.3z"/>
+                </svg>
+</div>
               </div>
             </div>
           </div>
           <div class="filterSubject genres">
-            <div class="togglediv"><h3>Genre</h3><span class="arrowUp"></span></div>
+            <div class="togglediv"><h3>Genre</h3></div>
             <div id="genreDrop">
               <div class="genreSelection">
-                <div class="genre" data-genre="drama">Drama</div>
-                <div class="genre" data-genre="crime">Crime</div>
-                <div class="genre" data-genre="action">Action</div>
-                <div class="genre" data-genre="western">Western</div>
-                <div class="genre" data-genre="sci-fi">Sci-Fi</div>
-                <div class="genre" data-genre="adventure">Adventure</div>
-                <div class="genre" data-genre="thriller">Thriller</div>
-                <div class="genre" data-genre="romance">Romance</div>
+                <div class="genre" data-genre="Drama">Drama</div>
+                <div class="genre" data-genre="Crime">Crime</div>
+                <div class="genre" data-genre="Action">Action</div>
+                <div class="genre" data-genre="Western">Western</div>
+                <div class="genre" data-genre="Sci-Fi">Sci-Fi</div>
+                <div class="genre" data-genre="Adventure">Adventure</div>
+                <div class="genre" data-genre="Thriller">Thriller</div>
+                <div class="genre" data-genre="Romance">Romance</div>
               </div>
             </div>
           </div>
           <div class="filterSubject ratings">
-            <div class="togglediv"><h3>Minimum Rating</h3><span class="arrowUp"></span></div>
+            <div class="togglediv"><h3>Minimum Rating</h3></span></div>
             <div id="ratingDrop">
               <div class="ratingSelection">
-                <div class="rating" data-rating=1>1</div>
-                <div class="rating" data-rating=2>2</div>
-                <div class="rating" data-rating=3>3</div>
-                <div class="rating" data-rating=4>4</div>
-                <div class="rating" data-rating=5>5</div>
-                <div class="rating" data-rating=6>6</div>
-                <div class="rating" data-rating=7>7</div>
-                <div class="rating" data-rating=8>8</div>
-                <div class="rating" data-rating=9>9</div>
+                <input type="range" min="1.0" max="10" value="5.0" step="0.1" class="slider" id="ratingSlider"><span id="ratingValue"></span>
               </div>
             </div>
           </div>
-    <!-- <hr>
-          <div class="filterSubject actors">
-            <div class="togglediv"><h3>Starring</h3><span class="arrowUp"></span></div>
-            <div id="actorsDrop">
-              <div class="actorsSelection">
-                <input type="text" id="starring" placeholder="Add actor"><input type="submit" id="starringSubmit" value="Add">
-              </div>
-            </div>
-          </div>-->
           <div class="filterSubject eras">
-            <div class="togglediv"><h3>Era</h3><span class="arrowUp"></span></div>
+            <div class="togglediv"><h3>Era</h3></div>
             <div id="eraDrop">
               <div class="erasSelection drop">
                 <div class="era" data-era="1920">1920</div>
@@ -86,58 +293,49 @@
             </div>
           </div>
         </div>
-        <hr>
+      <hr>
         <div class="action">
-          <button id="showRandomMovieBtn">Pick-A-Flick</button>
+          <button id="showRandomMovieBtn"><img src="img/random-icon-dark-alt.svg">Pick-A-Flick</button>
           <button id="showFullListBtn">Show full list</button>
         </div>
       </div>
+      </div>
+      <div class="powered">Powered by</div>
   </div>
 
 <div id="randomDiv">
-  <div class="shadowDiv">
-    <div class="randomMovie">
-      <div class="moviePoster">
-
-      </div>
-      <div class="movieInfo">
-        <div class="left-col">
-          <div class="movieInfoTitle">
-
-          </div>
-          <div class="movieInfoPlot">
-
-          </div>
-          <div class="movieInfoStreams">
-            <div class="leftIn-col">Stream:</div><div class="rightIn-col"></div>
-          </div>
-        </div>
-        <div class="right-col">
-          <div class="movieInfoRating randomInfo">
-            <div class="leftIn-col">Rating:</div><div class="rightIn-col"></div>
-          </div>
-          <div class="movieInfoGenre randomInfo">
-            <div class="leftIn-col">Genre:</div><div class="rightIn-col"></div>
-          </div>
-          <div class="movieInfoStarring randomInfo">
-            <div class="leftIn-col">Starring:</div><div class="rightIn-col"></div>
-          </div>
-          <div class="movieInfoEra randomInfo">
-            <div class="leftIn-col">Era:</div><div class="rightIn-col"></div>
-          </div>
-        </div>
-      </div>
+  <div class="close"><img src="img/close-light.svg"></div>
+  <div class="movieReel"><img src="img/moviereel-light.svg"></div>
+  <div class="rContent">
+    <div class="movieLogo"></div>
+    <div class="videoContainer"></div>
+    <div class="movieInfo">
+      <div class="movieInfo mPlot"><b>Plot:</b><div class="rInfoPlot"></div></div>
+      <div class="movieInfo mStarring"><b>Starring:</b><div class="rInfoStarring"></div></div>
+      <div class="movieInfo mRating"><b>Rating:</b><div class="rInfoRating"></div></div>
+      <div class="movieInfo mGenre"><b>Genre:</b><div class="rInfoGenre"></div></div>
     </div>
+    <div class="movieInfoStreams"><b>Stream:</b><div class="rInfoStreams"></div></div>
   </div>
 </div>
 
 <div id="fullListDiv">
-  <div class="shadowDiv">
+  <div class="close"><img src="img/close-light.svg"></div>
+  <div class="movieReel"><img src="img/moviereel-light.svg"></div>
     <div class="fullList">
 
     </div>
   </div>
 </div>
-<script src="ass1.js"></script>
+
+<div id="noMovies">
+  <div class="shadowDiv">
+    <div class="noMovieMatching">
+      <h1>There are no movies matching your criteria<h1>
+    </div>
+  </div>
+</div>
+<script src="ass4.js"></script>
+<script src="greensock.js"></script>
 
 </body>
