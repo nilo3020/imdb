@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 582 127.7" style="enable-background:new 0 0 582 127.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill:url(#SVGID_3_);}
+</style>
+<g>
+	<defs>
+		<path id="SVGID_1_" d="M191.4,0.7l-4.3,34h-43.3l4.4-34H191.4z M107.2,64.3c10.6,2.4,24.5,13.7,14.8,39.3
+			c-9.7,25.6-44.1,24.8-52.3,24.8c-8.2,0-69.8,0.5-69.8,0.5l16.7-128c0,0,66.7,0,77,0s32,3.6,32.7,31.1
+			C127,59.3,112.9,61.8,107.2,64.3z M49.7,49.7h25.3c0,0,10.1-0.1,10.2-9c0.1-8.9-8.3-9-9.6-9c-1.4,0-23.8,0-23.8,0L49.7,49.7z
+			 M73,76.7H46.2l-2.3,21c0,0,20.6,0,23.6,0s16.9-0.3,17.8-10.5C86.3,77,73,76.7,73,76.7z M132,127.7h43l12.1-92.3l-46.9,24.7
+			L132,127.7z M279.5,67.8L243.7,0.7h-38.9l-16.2,127h39.1l8.6-67l36,67h38.7l16-127h-38.7L279.5,67.8z M403.6,35.7
+			c8.6,0,54.4,0,54.4,0l4.2-35c0,0-61.4,0-76.9,0S356.6,9.4,343,22.9c-13.5,13.5-14.9,38.4-14.9,43.4c0,5,0,22.4,15.4,41.3
+			c15.4,19,41.8,20.1,48.3,20.1c5.9,0,54.4,0,54.4,0l9.4-73l-55.4,0c0,0,10.4,19.4,13.7,25.9c-5.9,12.1-12.8,11.8-20.7,12
+			c-8,0.1-14.9-6-18.1-8.8c-3.2-2.8-12.4-15.6-4.5-32.2C378.2,35.1,395,35.7,403.6,35.7z M577.3,34.7l4.1-34H474.7l-15.9,127h106.9
+			l4.4-35h-68.1l2-12h55.8l4.6-35h-56.1l1.1-11H577.3z"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="0" y1="64.32" x2="582.03" y2="64.32">
+		<stop  offset="0" style="stop-color:#EEEEEE"/>
+		<stop  offset="1" style="stop-color:#DDDDDD"/>
+	</linearGradient>
+	<rect y="0.5" class="st0" width="582" height="127.7"/>
+</g>
+</svg>
