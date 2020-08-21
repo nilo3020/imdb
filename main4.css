@@ -452,7 +452,7 @@ input {
 
 .powered.light {
   color: #aaa;
-  background-image: url("logo-img/IMDB_logo_2016.svg");
+  background-image: url("logo-img/IMDB_Logo_2016.svg");
   background-color: transparent;
   transition: background-image 0.4s ease;
 }
