@@ -125,6 +125,7 @@ function modeSwitch() {
   $(".powered").toggleClass("light")
   $("#showFullListBtn").toggleClass("light")
   $(".modeSwitchBtn").toggleClass("light")
+  $(".modeSwitch").toggleClass("light")
 }
 
 
@@ -173,15 +174,6 @@ $(".era").on("click", function() {
   $(this).addClass('selectedFilter');
   console.log(selectedEra)
 })
-
-// // Show correct poster for random movie
-// function showCorrectPoster() {
-//   moviePosterTitle = randomMovie.title
-//   if (moviePosterTitle === randomMovie.title) {
-//     const url = encodeURI(`posters/${moviePosterTitle}.jpg`)
-//     $(".moviePoster").append(`<img src="${url}">`)
-//   }
-// }
 
 // Show correct logo for random movieInfoEra
 function showCorrectMovieLogo() {
