@@ -21,6 +21,9 @@ $("#showRandomMovieBtn").on("click", function() {
   if ($(document).width() < 700) {
     logoScale = 1.3
   }
+  if ($(document).width() < 600) {
+    logoScale = 1
+  }
   console.log($(document).width())
   var centerWidth = pageWidth - logoWidth - pageMarginW;
   var centerHeight = pageHeight - logoHeight - pageMarginH;
