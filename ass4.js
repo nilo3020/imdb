@@ -104,7 +104,7 @@ const movieList = [
 
 // GLOBAL VARIABLES
 var selectedStream = [];
-var selectedGenre = "all";
+var selectedGenre = [];
 var selectedRating = "all";
 var selectedStarring = "all";
 var selectedEra = "all";
@@ -138,16 +138,20 @@ $(".stream").on("click", function() {
   } else {
     selectedStream.push($(this).data("stream")); // add stream to array
     $(this).find("path").removeClass('unselected');
-
   }
   console.log(selectedStream)
 })
 
 // Detect genre on click
 $(".genre").on("click", function() {
-  selectedGenre = $(this).data("genre");
-  $(".genre").removeClass('selectedFilter');
-  $(this).addClass('selectedFilter');
+  const removeGenre = selectedGenre.indexOf($(this).data("genre"));
+  if (removeGenre > -1 ) {
+    selectedGenre.splice(removeGenre, 1) // remove stream if already in array
+    $(this).removeClass('selectedFilter');
+  } else {
+    selectedGenre.push($(this).data("genre")); // add stream to array
+    $(this).addClass('selectedFilter');
+  }
   console.log(selectedGenre)
 })
 
@@ -211,7 +215,7 @@ function writeOutGenres() {
 function filterMovieListRandom(stream, genre, imdbScore, starring, era) {
   filterMovies = [];
   for(var x of movieList) {
-    var filterGenre;
+    var filterGenre = false;
     var filterRating;
     var filterStarring;
     var filterEra;
@@ -224,14 +228,21 @@ function filterMovieListRandom(stream, genre, imdbScore, starring, era) {
       }
     }
 
-    if (genre == "all") { filterGenre = true; }
+    for(i=0; i<selectedGenre.length; i++) {
+      if (x.genre.indexOf(selectedGenre[i]) >= 0) { // see if any streams in movieList matches selectedStreams
+        filterGenre = true
+        break;
+      }
+    }
+
+    // if (genre == "all") { filterGenre = true; }
     if (imdbScore == "all") { filterRating = true; }
     if (starring == "all") { filterStarring = true; }
     if (era == "all") { filterEra = true; }
 
-    if (genre != "all") {
-      filterGenre = x.genre.includes(genre);
-    }
+    // if (genre != "all") {
+    //   filterGenre = x.genre.includes(genre);
+    // }
     if (imdbScore != "all") {
       filterRating = x.imdbScore >= imdbScore;
     }
@@ -299,7 +310,7 @@ $(".close").mouseup(function(e){
 function filterMovieList(stream, genre, imdbScore, starring, era) {
   filterMovies = [];
   for(var x of movieList) {
-    var filterGenre;
+    var filterGenre = false;
     var filterRating;
     var filterStarring;
     var filterEra;
@@ -312,16 +323,23 @@ function filterMovieList(stream, genre, imdbScore, starring, era) {
       }
     }
 
+    for(i=0; i<selectedGenre.length; i++) {
+      if (x.genre.indexOf(selectedGenre[i]) >= 0) { // see if any streams in movieList matches selectedStreams
+        filterGenre = true
+        break;
+      }
+    }
+
     // reset all filters to show all movies
-    if (genre == "all") { filterGenre = true; }
+    // if (genre == "all") { filterGenre = true; }
     if (imdbScore == "all") { filterRating = true; }
     if (starring == "all") { filterStarring = true; }
     if (era == "all") { filterEra = true; }
 
     // define selected filters
-    if (genre != "all") {
-      filterGenre = x.genre.includes(genre);
-    }
+    // if (genre != "all") {
+    //   filterGenre = x.genre.includes(genre);
+    // }
     if (imdbScore != "all") {
       filterRating = x.imdbScore >= imdbScore;
     }
