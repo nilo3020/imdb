@@ -62,7 +62,7 @@ $("#showFullListBtn").on("click", function() {
   tl.from(".listRow", {opacity: 0, duration: 0.3, stagger: 0.3});
 })
 
-$("#noMovies").on("click", function() {
+$("#showRandomMovieBtn").on("click", function() {
   tl.from(".noMovieMatching", {y: -100});
 })
 
