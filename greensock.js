@@ -59,7 +59,11 @@ $("#showFullListBtn").on("click", function() {
   tl.to(".movieReel", {opacity: 0, duration: 0.2}, "-=0.5");
   tl.to(".movieReel", {display: "none", duration: 0}, "-=0.1");
   tl.to(".fullList", {display: "block", duration: 0});
-  tl.from(".listRow", {opacity: 0, duration: 0.3, stagger: 0.3})
+  tl.from(".listRow", {opacity: 0, duration: 0.3, stagger: 0.3});
+})
+
+$("#noMovies").on("click", function() {
+  tl.from(".noMovieMatching", {y: -100});
 })
 
 // Comment
