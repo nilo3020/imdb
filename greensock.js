@@ -63,7 +63,7 @@ $("#showFullListBtn").on("click", function() {
 })
 
 $("#showRandomMovieBtn").on("click", function() {
-  tl.from(".noMovieMatching", {y: -100});
+  tl.from(".noMovieMatching", {y: -100, duration: 1});
 })
 
 // Comment
