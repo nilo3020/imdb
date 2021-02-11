@@ -5,10 +5,6 @@
 var tl = gsap.timeline({});
 
 $("#showRandomMovieBtn").on("click", function() {
-  tl.from(".noMovieMatching", {y: 900, duration: 1});
-})
-
-$("#showRandomMovieBtn").on("click", function() {
 
   var pageWidth = $(window).width()/2;
   var pageHeight = $(window).height()/2;
@@ -55,6 +51,7 @@ $("#showRandomMovieBtn").on("click", function() {
   tl.from(".movieInfoStreams", {opacity: 0, duration: 0.5}, "-=1");
   tl.from(".rInfoStreams img", {opacity: 0, duration: 0.5, y: 20, stagger: 0.2});
   tl.from(".close", {opacity: 0, duration: 0.2, ease: "power1.inOut"});
+  tl.stop();
 });
 
 $("#showFullListBtn").on("click", function() {
@@ -64,6 +61,11 @@ $("#showFullListBtn").on("click", function() {
   tl.to(".movieReel", {display: "none", duration: 0}, "-=0.1");
   tl.to(".fullList", {display: "block", duration: 0});
   tl.from(".listRow", {opacity: 0, duration: 0.3, stagger: 0.3});
+})
+
+$("#showRandomMovieBtn").on("click", function() {
+  tl.from(".noMovieMatching", {y: 900, duration: 1});
+  tl.stop();
 })
 
 // Comment
