@@ -5,6 +5,10 @@
 var tl = gsap.timeline({});
 
 $("#showRandomMovieBtn").on("click", function() {
+  tl.from(".noMovieMatching", {y: 900, duration: 1});
+})
+
+$("#showRandomMovieBtn").on("click", function() {
 
   var pageWidth = $(window).width()/2;
   var pageHeight = $(window).height()/2;
@@ -60,10 +64,6 @@ $("#showFullListBtn").on("click", function() {
   tl.to(".movieReel", {display: "none", duration: 0}, "-=0.1");
   tl.to(".fullList", {display: "block", duration: 0});
   tl.from(".listRow", {opacity: 0, duration: 0.3, stagger: 0.3});
-})
-
-$("#showRandomMovieBtn").on("click", function() {
-  tl.from(".noMovieMatching", {y: 900, duration: 1});
 })
 
 // Comment
