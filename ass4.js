@@ -420,6 +420,7 @@ $(".close").mouseup(function(e) {
 $("#noMovies").mouseup(function(e){
   var noMovieMatching = $(".noMovieMatching");
   if(!noMovieMatching.is(e.target) && noMovieMatching.has(e.target).length === 0) {
+    tl.clear();
     $("#noMovies").hide();
     $(".movieLogo").html("");
     $(".movieInfoTitle").html("");
@@ -433,6 +434,9 @@ $("#noMovies").mouseup(function(e){
     $(".movieReel").css({"display":"flex", "opacity":"1"});
     $(document.body).css("overflow-y", "scroll");
     resetFilters();
+    $(".stream").find("path").addClass('unselected');
+    $(".genre").removeClass('selectedFilter');
+    $(".era").removeClass('selectedFilter');
   }
 });
 
