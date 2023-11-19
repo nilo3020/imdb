@@ -128,6 +128,13 @@ function modeSwitch() {
   $(".modeSwitch").toggleClass("light")
 }
 
+function resetFilters() {
+  selectedStream = [];
+  selectedGenre = [];
+  selectedRating = "all";
+  selectedStarring = "all";
+  selectedEra = "all";
+}
 
 // Detect stream on click
 $(".stream").on("click", function() {
@@ -425,6 +432,7 @@ $("#noMovies").mouseup(function(e){
     $(".fullList").html("");
     $(".movieReel").css({"display":"flex", "opacity":"1"});
     $(document.body).css("overflow-y", "scroll");
+    resetFilters();
   }
 });
 
